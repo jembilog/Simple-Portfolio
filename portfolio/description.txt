@@ -1,0 +1,37 @@
+Product Title:
+Modern Responsive Portfolio Website Template
+
+Description:
+Showcase your skills, projects, and creativity with this Modern Responsive Portfolio Website Template — perfect for freelancers, designers, developers, and creatives who want a sleek, professional online presence.
+
+Built with clean, well-organized HTML, CSS, and JavaScript, this template is fully responsive and looks stunning on desktops, tablets, and mobile devices. Easily customize colors, fonts, and images to match your personal style or brand.
+
+Features:
+
+Responsive design for all screen sizes
+
+Clean, modern, and minimalistic layout
+
+Smooth animations and interactive hover effects
+
+Easy-to-edit code with clear comments
+
+Ready to add your projects, bio, and contact info
+
+Includes multiple sections: About Me, Portfolio Gallery, Skills, Contact Form
+
+Cross-browser compatible
+
+SEO-friendly structure
+
+Fast loading for better user experience
+
+What’s Included:
+
+HTML, CSS, and JavaScript source files
+
+Sample images and placeholders
+
+Detailed documentation for easy customization
+
+Demo link to preview the template in action

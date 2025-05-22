@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juan's Portfolio</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --accent: #ff7b00;
+      --accent-hover: #e06e00;
+      --card: #f2f2f2;
+      --shadow: rgba(0,0,0,0.1);
+      --transition: 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --accent: #ffae42;
+      --accent-hover: #d28c00;
+      --card: #1e1e1e;
+      --shadow: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color var(--transition), color var(--transition);
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px 10%;
+      background: var(--card);
+      box-shadow: 0 2px 8px var(--shadow);
+      border-radius: 12px;
+    }
+
+    .intro {
+      max-width: 500px;
+    }
+
+    .intro h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin: 0;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .profile-pic {
+      width: 250px;
+      height: 250px;
+      background: #ccc;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px var(--shadow);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      box-shadow: 0 8px 20px var(--accent);
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 50px;
+      color: var(--accent);
+    }
+
+    .skills, .projects {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .skills ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skills li {
+      background: var(--card);
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      box-shadow: 0 2px 5px var(--shadow);
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+
+    .skills li:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px var(--accent);
+    }
+
+    .projects .project {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px var(--shadow);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .projects .project:hover {
+      box-shadow: 0 6px 20px var(--accent);
+      transform: translateY(-5px);
+    }
+
+    .project h3 {
+      margin: 0 0 10px 0;
+      color: var(--text);
+    }
+
+    .project a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .project a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      text-align: center;
+      margin-top: 40px;
+      padding-bottom: 50px;
+    }
+
+    .contact-form form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 6px var(--accent);
+    }
+
+    .contact-form button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition:
+        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.3s ease;
+      will-change: transform;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(255, 123, 0, 0.5);
+      background-color: var(--accent-hover);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent);
+      border: none;
+      padding: 10px 16px;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 4px 8px var(--shadow);
+      transition:
+        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.3s ease;
+      will-change: transform;
+      z-index: 1000;
+    }
+
+    .dark-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 18px var(--accent);
+      background-color: var(--accent-hover);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+      }
+
+      .profile-pic {
+        margin-top: 30px;
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <button class="dark-toggle" aria-label="Toggle dark mode">🌙 Toggle Mode</button>
+
+  <header>
+    <div class="intro">
+      <h1>Juan Dela Cruz</h1>
+      <p>I'm a passionate full-stack developer building modern and responsive web applications with clean code and creative flair.</p>
+    </div>
+    <div class="profile-pic" style="background-image: url('https://via.placeholder.com/250');" aria-label="Client profile picture"></div>
+  </header>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>PHP</li>
+      <li>Python</li>
+      <li>MySQL</li>
+    </ul>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>To-Do App</h3>
+      <p>Simple JS app that saves tasks to localStorage.</p>
+      <a href="#" target="_blank" rel="noopener noreferrer">GitHub Link</a>
+    </div>
+    <div class="project">
+      <h3>Student Portal</h3>
+      <p>PHP/MySQL system for student records.</p>
+      <a href="#" target="_blank" rel="noopener noreferrer">GitHub Link</a>
+    </div>
+    <div class="project">
+      <h3>Weather Dashboard</h3>
+      <p>Live weather via OpenWeatherMap API.</p>
+      <a href="#" target="_blank" rel="noopener noreferrer">GitHub Link</a>
+    </div>
+  </section>
+
+  <section class="contact-form">
+    <h2>Contact Me</h2>
+    <form action="mailto:your.email@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Juan Dela Cruz. All rights reserved.
+  </footer>
+
+  <script>
+    const toggleBtn = document.querySelector('.dark-toggle');
+    const body = document.body;
+
+    // Load saved theme from localStorage or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', savedTheme);
+    updateToggleText(savedTheme);
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateToggleText(newTheme);
+    });
+
+    function updateToggleText(theme) {
+      toggleBtn.textContent = theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode';
+    }
+  </script>
+</body>
+</html>
