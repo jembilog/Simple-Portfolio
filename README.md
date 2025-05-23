@@ -2,4 +2,4 @@
 Simple Portfolio
 
 
-![Portfolio](portfolio-screenshot.png)
+![Portfolio](Screenshot 2025-05-23 113146.png)
